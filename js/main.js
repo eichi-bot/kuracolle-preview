@@ -74,7 +74,7 @@
   } else if (!events.length) {
     totalsEl.className = "record-empty";
     totalsEl.innerHTML =
-      '<p class="total-num">00</p>' +
+      '<p class="total-num" aria-hidden="true">00</p>' +
       "<p><b>第1回の開催後に掲載します。</b>出演した組数・来場者数・アンケートの結果など、くらコレの歩みをここに記録していきます。</p>";
   } else {
     var items = [

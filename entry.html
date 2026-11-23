@@ -27,10 +27,11 @@
   if (location.search.indexOf("show-draft") > -1) document.documentElement.classList.add("show-draft");
 </script>
 <script src="js/gate.js?v=96ed1c16"></script>
-<link rel="stylesheet" href="css/style.css?v=20261124f">
+<link rel="stylesheet" href="css/style.css?v=20261124i">
 </head>
 <body>
 
+<a class="skip-link" href="#main">本文へ移動</a>
 <header class="site-header" id="top">
   <div class="header-inner">
     <a class="brand" href="index.html" aria-label="くらコレ トップへ">
@@ -68,7 +69,7 @@
   </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
 
 
 <!-- ========== ページの見出し ========== -->
@@ -323,7 +324,7 @@
         <textarea id="e-note" name="note" rows="4"></textarea>
       </div>
 
-      <label class="agree"><input type="checkbox" name="agree" value="同意する" required><span>入力した個人情報を、くらコレの出演・参加に関するご連絡のために使うことに同意します。 <span class="req">必須</span></span></label>
+      <label class="agree"><input type="checkbox" name="agree" value="同意する" required><span>入力した個人情報を、くらコレの出演・参加に関するご連絡のために使うことに同意します（<a href="privacy.html" target="_blank" rel="noopener">個人情報の取り扱い</a>）。 <span class="req">必須</span></span></label>
 
       </div>
       <div class="step" data-step="4" data-step-title="入力内容の確認" hidden>
@@ -368,12 +369,12 @@
     </nav>
   </div>
   <div class="wrap footer-bottom">
-    <small>&copy; 2026 一般社団法人全国介護支援協会</small>
+    <small>&copy; 2026 一般社団法人全国介護支援協会<a class="footer-privacy" href="privacy.html">個人情報の取り扱い</a></small>
     <a href="#top" class="to-top">ページの先頭へ</a>
   </div>
 </footer>
 
-<script src="data/config.js?v=20261124f"></script>
-<script src="js/main.js?v=20261124f"></script>
+<script src="data/config.js?v=20261124i"></script>
+<script src="js/main.js?v=20261124i"></script>
 </body>
 </html>
