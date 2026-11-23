@@ -5,8 +5,8 @@
 =================================================================== */
 (function () {
   "use strict";
-  var PW = "kuracolle2026";
-  var KEY = "kuracolle_gate_v1";
+  var PW = "kurakore";
+  var KEY = "kuracolle_gate_v2";
   var authed = false;
   try { authed = sessionStorage.getItem(KEY) === "1"; } catch (e) { authed = true; }
   var st = document.createElement("style");
