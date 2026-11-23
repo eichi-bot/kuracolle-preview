@@ -537,9 +537,9 @@ em, i { font-style: normal; }
   font-family: var(--en); font-style: italic; font-weight: 800; font-size: 20px; color: var(--gold);
 }
 .faq-steps { counter-reset: st; }
-.faq-steps li { counter-increment: st; display: grid; grid-template-columns: 2.2em minmax(0, 1fr); padding: 10px 0; border-top: 1px dashed var(--line); }
+.faq-steps li { counter-increment: st; display: block; position: relative; padding: 12px 0 12px 2.2em; border-top: 1px dashed var(--line); }
 .faq-steps li:first-child { border-top: 0; }
-.faq-steps li::before { content: counter(st); font-family: var(--en); font-style: italic; font-weight: 800; color: var(--pink); }
+.faq-steps li::before { content: counter(st); position: absolute; left: 0; top: 12px; font-family: var(--en); font-style: italic; font-weight: 800; color: var(--pink); }
 .faq-steps b { display: block; color: var(--ink); }
 
 /* =========================================================
