@@ -27,7 +27,7 @@
   if (location.search.indexOf("show-draft") > -1) document.documentElement.classList.add("show-draft");
 </script>
 <script src="js/gate.js?v=96ed1c16"></script>
-<link rel="stylesheet" href="css/style.css?v=20261124i">
+<link rel="stylesheet" href="css/style.css?v=20261124j">
 </head>
 <body>
 
@@ -213,6 +213,11 @@
         <textarea id="f-message" name="message" rows="6" required></textarea>
       </div>
 
+      <fieldset class="cfield optin">
+        <legend>お知らせの受け取り（任意）</legend>
+        <label class="agree optin-label"><input type="checkbox" name="newsletter" value="希望する"><span>全国介護支援協会からのお知らせ（次回のくらコレ・イベント・研修のご案内）を受け取る</span></label>
+      </fieldset>
+
       <label class="agree"><input type="checkbox" name="agree" value="同意する" required><span>入力した個人情報を、お問い合わせへの回答のために使うことに同意します（<a href="privacy.html" target="_blank" rel="noopener">個人情報の取り扱い</a>）。 <span class="req">必須</span></span></label>
 
       <p class="cform-error" role="alert" hidden></p>
@@ -253,7 +258,7 @@
   </div>
 </footer>
 
-<script src="data/config.js?v=20261124i"></script>
-<script src="js/main.js?v=20261124i"></script>
+<script src="data/config.js?v=20261124j"></script>
+<script src="js/main.js?v=20261124j"></script>
 </body>
 </html>

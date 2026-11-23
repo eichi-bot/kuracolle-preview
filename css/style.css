@@ -1150,3 +1150,7 @@ main:focus { outline: none; }
 .keywords:hover .keywords-track, .keywords:focus-within .keywords-track { animation-play-state: paused; }
 /* 薄いグレーの帯の上の小さなピンク文字は、少し濃いピンクに（濃さ 4.5 以上） */
 .concept .trio-en, .director-role, .entry-event dt, .step-bar li.is-current, .join .join-for, .access .dd-note a { color: var(--pink-deep); }
+/* お知らせの受け取り（任意）のチェック欄 */
+.optin { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); }
+.optin legend { font-size: 14px; color: var(--ink-2); }
+.optin .optin-label { margin-top: 0; }
