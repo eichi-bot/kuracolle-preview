@@ -311,7 +311,7 @@ em, i { font-style: normal; }
 /* ---------- 06 実施概要 ---------- */
 .outline-inner { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 56px; }
 .outline-list { border-top: 1px solid var(--ink); }
-.outline-list div { display: grid; grid-template-columns: 9em minmax(0, 1fr); gap: 24px; padding-block: 20px; border-bottom: 1px solid var(--line); }
+.outline-list div { display: grid; grid-template-columns: 12.5em minmax(0, 1fr); gap: 24px; padding-block: 20px; border-bottom: 1px solid var(--line); }
 .outline-list dt { font-weight: 700; color: var(--pink); }
 .outline-list dd { font-size: 16px; }
 
@@ -848,3 +848,122 @@ h1, h2, h3, .hero-catch, .page-title, .contact-title, .story-quote p { word-brea
 @media (prefers-reduced-motion: reduce) { .news-cards { scroll-behavior: auto; } }
 /* 左の列の大きな見出しは小さめに（言葉の途中で折れないように） */
 .policy .sec-title, .evidence .sec-title { font-size: clamp(26px, 2.8vw, 36px); }
+
+/* =========================================================
+   ページ分け（2026-11-24）：ヘッダー・入口・フッターなど
+   ========================================================= */
+/* ヘッダー：PCはメニューを並べる。今いるページに印 */
+.gnav { gap: 26px; }
+.gnav a[aria-current="page"] { color: var(--pink); }
+.gnav a[aria-current="page"]::after { transform: scaleX(1); }
+.header-cta .btn[aria-current="page"] { box-shadow: 0 0 0 3px var(--pink-pale); }
+@media (max-width: 1440px) { .brand-sub { display: none; } }
+@media (max-width: 1320px) { .gnav { display: flex; } .menu-toggle { display: none; } .drawer { display: none !important; } }
+@media (max-width: 1180px) {
+  .gnav { display: none; }
+  .menu-toggle { display: grid; }
+  .drawer:not([hidden]) { display: grid !important; }
+}
+.drawer a[aria-current="page"] { color: var(--pink); }
+.drawer-cta { margin-top: 12px; border: 0 !important; border-radius: 999px; text-align: center; padding: 14px !important; }
+.drawer-cta.btn-fill { background: var(--pink); color: var(--white); }
+.drawer-cta.btn-line { border: 1.5px solid var(--ink) !important; }
+
+/* 下の階層のページの見出し */
+.page-hero { background: var(--paper-2); border-bottom: 0; }
+.page-hero + .sec { padding-top: clamp(64px, 8vw, 110px); }
+
+/* TOP：くらコレとは（短く） */
+.top-intro { padding-block: clamp(72px, 9vw, 120px); }
+.top-intro-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 56px; align-items: center; }
+.top-intro-tags { font-weight: 900; font-size: clamp(28px, 3.4vw, 46px); letter-spacing: .06em; line-height: 1.5; word-break: auto-phrase; }
+.top-intro-tags i { color: var(--pink); margin: 0 .15em; }
+.top-intro-lead { font-size: 17px; line-height: 2.1; }
+.top-intro-quote { margin: 20px 0 24px; padding-left: 20px; border-left: 3px solid var(--pink); font-weight: 900; font-size: clamp(20px, 2vw, 26px); letter-spacing: .04em; }
+
+/* TOP：各ページへの入口（同じ大きさで4つ） */
+.entrances { padding-bottom: clamp(72px, 9vw, 120px); }
+.entrance-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.entrance-list li + li { border-left: 1px solid var(--line); }
+.entrance-list a { position: relative; display: grid; gap: 6px; padding: 28px 24px 56px; text-decoration: none; height: 100%; transition: background-color .25s; }
+.entrance-list li:first-child a { padding-left: 0; }
+.ent-en { font-family: var(--en); font-style: italic; font-weight: 800; font-size: 15px; color: var(--pink); letter-spacing: .06em; }
+.entrance-list b { font-weight: 900; font-size: clamp(20px, 1.9vw, 26px); letter-spacing: .04em; }
+.ent-desc { font-size: 14px; color: var(--ink-2); line-height: 1.7; }
+.ent-arrow { position: absolute; right: 20px; bottom: 20px; font-size: 22px; color: var(--pink); transition: transform .25s; }
+@media (hover: hover) {
+  .entrance-list a:hover b { color: var(--pink); }
+  .entrance-list a:hover .ent-arrow { transform: translateX(6px); }
+}
+
+/* TOP：第1回のご案内（ピンクの帯） */
+.event-banner { background: var(--pink); color: var(--white); padding-block: clamp(48px, 6vw, 72px); }
+.event-banner-inner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 40px; align-items: center; }
+.eb-no { font-family: var(--en); font-style: italic; font-weight: 800; font-size: clamp(64px, 7vw, 96px); line-height: .9; }
+.eb-no span { display: block; font-size: 16px; opacity: .85; }
+.eb-date { font-family: var(--en); font-style: italic; font-weight: 800; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1; }
+.eb-date span { font-size: .55em; margin-left: .3em; }
+.eb-place { margin-top: 8px; font-weight: 700; font-size: 16px; }
+.eb-place small { display: block; font-weight: 500; font-size: 13.5px; opacity: .9; }
+.eb-actions { display: grid; gap: 12px; }
+.btn-ghost { background: transparent; border-color: rgba(255,255,255,.85); color: var(--white); }
+@media (hover: hover) { .btn-ghost:hover { background: var(--white); color: var(--pink); } }
+.event-banner .btn-white { color: var(--pink); }
+
+.more-link { margin-top: 16px; text-align: right; }
+.next-desc { display: block; margin-top: 6px; font-size: 14px; color: var(--ink-2); }
+
+/* くらコレとは：コレクションディレクター */
+.director { background: var(--paper-2); }
+.director-inner { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 56px; }
+.director-body { border-top: 1px solid var(--ink); padding-top: 28px; }
+.director-role { font-family: var(--en); font-style: italic; font-weight: 800; color: var(--pink); letter-spacing: .06em; font-size: 15px; }
+.director-name { margin: 6px 0 18px; font-weight: 900; font-size: clamp(28px, 3vw, 38px); letter-spacing: .1em; }
+.director-name small { display: block; font-size: 14px; font-weight: 700; color: var(--ink-2); letter-spacing: .04em; }
+.director-body > p:last-child { font-size: 16px; line-height: 2; }
+
+/* 第1回のページ */
+.event-inner { display: grid; grid-template-columns: 340px minmax(0, 1fr); gap: 56px; align-items: start; }
+.event-card { padding: 32px 28px; background: var(--pink); color: var(--white); border-radius: 6px; }
+.event-card .eb-date { margin-top: 18px; }
+.event-note { margin-top: 12px; font-weight: 700; font-size: 15px; }
+
+/* お知らせ一覧 */
+.news-grid { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 28px; }
+
+/* よくある質問・協賛のページは1列に */
+.faq-solo { grid-template-columns: minmax(0, 1fr); max-width: 920px; }
+.join-solo { grid-template-columns: minmax(0, 1fr); }
+.join-solo .join-col { padding-right: 0; }
+
+/* フッター：全ページへのリンク */
+.footer-inner { align-items: flex-start; }
+.footer-org { margin-top: 18px; text-align: left; font-size: 14px; color: var(--ink); font-weight: 700; }
+.footer-org span { display: block; font-size: 12px; font-weight: 500; color: var(--ink-3); }
+.footer-nav { display: flex; gap: 56px; }
+.footer-nav ul { list-style: none; display: grid; gap: 12px; align-content: start; }
+.footer-nav a { font-size: 14.5px; font-weight: 700; text-decoration: none; }
+@media (hover: hover) { .footer-nav a:hover { color: var(--pink); } }
+
+@media (max-width: 960px) {
+  .top-intro-inner, .director-inner, .event-inner { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .entrance-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .entrance-list li:nth-child(3) { border-left: 0; }
+  .entrance-list li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .entrance-list li:nth-child(3) a { padding-left: 0; }
+  .event-banner-inner { grid-template-columns: auto minmax(0, 1fr); }
+  .eb-actions { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+  .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-inner { flex-direction: column; gap: 36px; }
+}
+@media (max-width: 600px) {
+  .entrance-list a { padding: 22px 12px 48px 14px; }
+  .entrance-list li:nth-child(odd) a { padding-left: 0; }
+  .eb-actions { grid-template-columns: 1fr; }
+  .news-grid { grid-template-columns: minmax(0, 1fr); }
+  .footer-nav { gap: 36px; }
+}
+/* TOPの「暮らし×おしゃれ×介護」は1行に。くらコレとはでは灰色の帯が続かないように */
+.top-intro-tags { font-size: clamp(24px, 2.7vw, 38px); white-space: nowrap; }
+@media (max-width: 600px) { .top-intro-tags { white-space: normal; font-size: 26px; } }
+.benefits { background: var(--white); border-top: 1px solid var(--line); }

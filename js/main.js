@@ -105,11 +105,11 @@
 
   /* ---------- お知らせ（data/news.js）：サムネつきの横に流れるカード ---------- */
   var newsEl = document.getElementById("news-cards");
-  if (newsEl && window.KURACOLLE_NEWS) {
-    var WD = ["日", "月", "火", "水", "木", "金", "土"];
-    var TAGS = { "開催": "event", "募集": "entry", "お知らせ": "info", "レポート": "report" };
-    var list = window.KURACOLLE_NEWS.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
-    newsEl.innerHTML = list.map(function (n) {
+  var newsAll = document.getElementById("news-all");
+  var WD = ["日", "月", "火", "水", "木", "金", "土"];
+  var TAGS = { "開催": "event", "募集": "entry", "お知らせ": "info", "レポート": "report" };
+  var newsList = (window.KURACOLLE_NEWS || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+  var newsCard = function (n) {
       var d = n.date.split("-"), dt = new Date(+d[0], +d[1] - 1, +d[2]);
       var kind = TAGS[n.tag] || "info";
       var thumb = n.img
@@ -122,7 +122,11 @@
         '<span class="news-card-title">' + esc(n.title) + "</span>" +
         '<span class="news-lead"><time class="sr-only" datetime="' + esc(n.date) + '">' + (+d[0]) + "年" + (+d[1]) + "月" + (+d[2]) + "日</time>" + esc(n.lead || "") + "</span>" +
         "</a></li>";
-    }).join("");
+  };
+  // お知らせ一覧のページ：全部を新しい順に
+  if (newsAll) newsAll.innerHTML = newsList.map(newsCard).join("");
+  if (newsEl && newsList.length) {
+    newsEl.innerHTML = newsList.slice(0, 8).map(newsCard).join("");
     var nPrev = document.querySelector("[data-news-prev]"), nNext = document.querySelector("[data-news-next]");
     var nStep = function () { var it = newsEl.querySelector(".news-item"); return it ? it.getBoundingClientRect().width + 24 : newsEl.clientWidth; };
     var nHow = function () { return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"; };
