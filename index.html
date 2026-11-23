@@ -29,8 +29,12 @@
  "image":"https://zenkaikyo.jp/kuracolle/img/ogp-v2.jpg","description":"「暮らし × おしゃれ × 介護」をテーマにした、高齢の方と介護職がふたりで歩くファッションステージ。",
  "organizer":{"@type":"Organization","name":"一般社団法人全国介護支援協会","url":"https://zenkaikyo.jp/"}}
 </script>
+<script>
+  /* ?show-draft を付けると、企画書にない新しい文（draft-copy）を黄色で表示（確認用） */
+  if (location.search.indexOf("show-draft") > -1) document.documentElement.classList.add("show-draft");
+</script>
 <script src="js/gate.js?v=96ed1c16"></script>
-<link rel="stylesheet" href="css/style.css?v=20261123e">
+<link rel="stylesheet" href="css/style.css?v=20261123f">
 <script>
   /* オープニング：同じタブで2回目以降は出さない */
   (function () {
@@ -59,6 +63,7 @@
       <span class="brand-sub">KURA COLLE<br><small>主催 一般社団法人全国介護支援協会</small></span>
     </a>
     <nav class="gnav" aria-label="メインメニュー">
+      <a href="collection.html">くらコレとは</a>
       <a href="#story">想い</a>
       <a href="#concept">コンセプト</a>
       <a href="#program">企画内容</a>
@@ -75,6 +80,7 @@
     </button>
   </div>
   <div class="drawer" id="drawer" hidden>
+    <a href="collection.html">くらコレとは</a>
     <a href="#story">想い</a>
     <a href="#concept">コンセプト</a>
     <a href="#program">企画内容</a>
@@ -117,13 +123,17 @@
   </div>
 </section>
 
-<!-- ========== NEWS STRIP ========== -->
-<section class="news-strip" aria-label="お知らせ">
-  <div class="wrap news-inner">
-    <p class="news-label">NEWS</p>
-    <ul class="news-list">
-      <li><time datetime="2026-11-23">2026.11.23</time><span>第1回の開催が決まりました。2027年3月14日（日）、「FUKUSHI FES 2027」のステージで開催します。</span></li>
-    </ul>
+<!-- ========== NEWS（data/news.js から自動で並ぶ） ========== -->
+<section class="news" aria-labelledby="news-h">
+  <div class="wrap">
+    <div class="news-head">
+      <h2 class="news-title" id="news-h"><span class="sec-en">News</span>お知らせ</h2>
+      <div class="news-btns" data-news-btns hidden>
+        <button class="news-btn" type="button" data-news-prev aria-label="前のお知らせへ"><span aria-hidden="true">←</span></button>
+        <button class="news-btn" type="button" data-news-next aria-label="次のお知らせへ"><span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <ul class="news-cards" id="news-cards" data-news-track tabindex="0" aria-labelledby="news-h"></ul>
   </div>
 </section>
 
@@ -140,6 +150,7 @@
         <p>年齢や障がいの有無にかかわらず、誰もが、自分らしく、おしゃれを楽しみ、ときめきを感じられる暮らしを。</p>
         <p>くらコレは、ファッションやライフスタイルを通して、“その人らしい暮らし”の魅力を発信する企画です。</p>
         <p>「パリコレ」のような華やかさを、毎日の「暮らし」に。特別な人のためのショーではなく、だれもの暮らしが主役になるショーです。</p>
+        <p><a class="text-link" href="collection.html">暮らしを、コレクションする。（くらコレとは）</a></p>
       </div>
       <blockquote class="story-quote">
         <p>一人では歩けない。<br>でも、<span class="pink">二人なら</span>歩ける。</p>
@@ -260,6 +271,7 @@
       <li><b>ひとりで判断しない</b><span>迷ったときは、必ずサポート担当に相談します。</span></li>
       <li><b>ふたりで楽しむ</b><span>上手に歩くことより、ふたりの笑顔がいちばんです。</span></li>
     </ol>
+    <a class="promise-link" href="entry.html#policy">出演者を大切にする方針を見る</a>
   </div>
 </section>
 
@@ -564,8 +576,9 @@
   </div>
 </footer>
 
-<script src="data/stats.js?v=20261123e"></script>
-<script src="data/config.js?v=20261123e"></script>
-<script src="js/main.js?v=20261123e"></script>
+<script src="data/stats.js?v=20261123f"></script>
+<script src="data/news.js?v=20261123f"></script>
+<script src="data/config.js?v=20261123f"></script>
+<script src="js/main.js?v=20261123f"></script>
 </body>
 </html>

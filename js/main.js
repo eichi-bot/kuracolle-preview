@@ -103,6 +103,42 @@
       "</tbody></table>";
   }
 
+  /* ---------- お知らせ（data/news.js）：サムネつきの横に流れるカード ---------- */
+  var newsEl = document.getElementById("news-cards");
+  if (newsEl && window.KURACOLLE_NEWS) {
+    var WD = ["日", "月", "火", "水", "木", "金", "土"];
+    var TAGS = { "開催": "event", "募集": "entry", "お知らせ": "info", "レポート": "report" };
+    var list = window.KURACOLLE_NEWS.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    newsEl.innerHTML = list.map(function (n) {
+      var d = n.date.split("-"), dt = new Date(+d[0], +d[1] - 1, +d[2]);
+      var kind = TAGS[n.tag] || "info";
+      var thumb = n.img
+        ? '<img src="' + esc(n.img) + '" alt="" loading="lazy" decoding="async">'
+        : '<span class="news-art" aria-hidden="true"><i></i><i></i><i></i></span>';
+      return '<li class="news-item"><a class="news-link" href="' + esc(n.href || "#") + '">' +
+        '<span class="news-thumb news-thumb--' + kind + '">' + thumb +
+        '<span class="news-date" aria-hidden="true"><span class="news-y">' + d[0] + '</span><span class="news-md">' + (+d[1]) + "." + d[2] + '</span><span class="news-wd">' + WD[dt.getDay()] + "曜日</span></span></span>" +
+        '<span class="news-tag news-tag--' + kind + '">' + esc(n.tag) + "</span>" +
+        '<span class="news-card-title">' + esc(n.title) + "</span>" +
+        '<span class="news-lead"><time class="sr-only" datetime="' + esc(n.date) + '">' + (+d[0]) + "年" + (+d[1]) + "月" + (+d[2]) + "日</time>" + esc(n.lead || "") + "</span>" +
+        "</a></li>";
+    }).join("");
+    var nPrev = document.querySelector("[data-news-prev]"), nNext = document.querySelector("[data-news-next]");
+    var nStep = function () { var it = newsEl.querySelector(".news-item"); return it ? it.getBoundingClientRect().width + 24 : newsEl.clientWidth; };
+    var nHow = function () { return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"; };
+    var nUpdate = function () {
+      var max = newsEl.scrollWidth - newsEl.clientWidth - 2;
+      document.querySelector("[data-news-btns]").hidden = max <= 0; // 全部見えているときはボタンを出さない
+      nPrev.setAttribute("aria-disabled", newsEl.scrollLeft <= 2 ? "true" : "false");
+      nNext.setAttribute("aria-disabled", newsEl.scrollLeft >= max ? "true" : "false");
+    };
+    nPrev.addEventListener("click", function () { newsEl.scrollBy({ left: -nStep(), behavior: nHow() }); });
+    nNext.addEventListener("click", function () { newsEl.scrollBy({ left: nStep(), behavior: nHow() }); });
+    newsEl.addEventListener("scroll", nUpdate, { passive: true });
+    window.addEventListener("resize", nUpdate);
+    nUpdate();
+  }
+
   /* ---------- フォーム（お問い合わせ・出演申込み）共通 ---------- */
   // 送信先は data/config.js の KURACOLLE_FORM_ENDPOINT（Googleの仕組みのURL）。空のあいだは試作として送らない
   var ENDPOINT = (window.KURACOLLE_CONFIG || {}).formEndpoint || "";

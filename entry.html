@@ -22,8 +22,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700;1,800&family=Klee+One:wght@400;600&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<script>
+  /* ?show-draft を付けると、企画書にない新しい文（draft-copy）を黄色で表示（確認用） */
+  if (location.search.indexOf("show-draft") > -1) document.documentElement.classList.add("show-draft");
+</script>
 <script src="js/gate.js?v=96ed1c16"></script>
-<link rel="stylesheet" href="css/style.css?v=20261123e">
+<link rel="stylesheet" href="css/style.css?v=20261123f">
 </head>
 <body>
 
@@ -34,6 +38,7 @@
       <span class="brand-sub">KURA COLLE<br><small>主催 一般社団法人全国介護支援協会</small></span>
     </a>
     <nav class="gnav" aria-label="メインメニュー">
+      <a href="collection.html">くらコレとは</a>
       <a href="index.html#story">想い</a>
       <a href="index.html#concept">コンセプト</a>
       <a href="index.html#program">企画内容</a>
@@ -50,6 +55,7 @@
     </button>
   </div>
   <div class="drawer" id="drawer" hidden>
+    <a href="collection.html">くらコレとは</a>
     <a href="index.html#story">想い</a>
     <a href="index.html#concept">コンセプト</a>
     <a href="index.html#program">企画内容</a>
@@ -91,6 +97,39 @@
       <li><b>衣装・紹介文の準備</b>衣装は各自でご用意ください</li>
       <li><b>ご案内資料・同意書</b>個人情報の同意書をいただきます</li>
       <li><b>リハーサル・本番</b>前日にリハーサルを行います</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== 出演者を大切にする方針 ========== -->
+<section class="sec policy" id="policy">
+  <div class="wrap policy-inner">
+    <header class="sec-head">
+      <p class="sec-en">Our Policy</p>
+      <h2 class="sec-title">出演者を<br>大切にする方針</h2>
+      <p class="sec-desc">上手に歩くことより、ふたりの笑顔がいちばんです。安心して参加していただけるよう、次のことを大切にします。</p>
+    </header>
+    <ol class="policy-list">
+      <li>
+        <h3>体調と安全がいちばん</h3>
+        <p>出演よりも、ご本人の体調と安全を大切にします。当日は看護職員が救護にあたります。<span class="draft-copy">当日の体調によって出演を取りやめることになっても、まったく問題ありません。</span></p>
+      </li>
+      <li>
+        <h3>ひとりで判断しない</h3>
+        <p>迷ったときは、必ずサポート担当に相談します。出演する事業所からも、出演者のサポートとして1名程度のご協力をお願いしています。</p>
+      </li>
+      <li>
+        <h3>その人に合った歩き方で</h3>
+        <p class="draft-copy">つえ・歩行器・車いすなど、ふだんの暮らしのままで出演できます。お申し込みのときに歩くときの様子を伺い、無理のない進行を一緒に考えます。</p>
+      </li>
+      <li>
+        <h3>写真やお名前の扱い</h3>
+        <p>本番の約1か月前に、個人情報の同意書をいただきます。<span class="draft-copy">ステージで紹介するお名前はニックネームでもかまいません。写真や動画をどこまで載せるかは、同意書で確認してから使います。</span></p>
+      </li>
+      <li>
+        <h3>費用の負担をかけない</h3>
+        <p>出演料は無料です。衣装は各自でのご用意が基本ですが、メイク・ヘアはボランティアや協賛企業の皆さまがお手伝いします。</p>
+      </li>
     </ol>
   </div>
 </section>
@@ -299,7 +338,7 @@
   </div>
 </footer>
 
-<script src="data/config.js?v=20261123e"></script>
-<script src="js/main.js?v=20261123e"></script>
+<script src="data/config.js?v=20261123f"></script>
+<script src="js/main.js?v=20261123f"></script>
 </body>
 </html>
