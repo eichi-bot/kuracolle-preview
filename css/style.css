@@ -984,3 +984,7 @@ h1, h2, h3, .hero-catch, .page-title, .contact-title, .story-quote p { word-brea
 .opening-line + .opening-line { padding-top: 1.6em; margin-right: .3em; }
 .opening { gap: 28px; }
 .opening-brand { font-size: 18px; }
+
+/* オープニング：手書きの書体（Yomogi）で、もう少し小さく（2026-11-24 丸山さん） */
+.opening-text { font-family: "Yomogi", "Klee One", var(--jp); font-weight: 400; font-size: min(3.6vh, 24px); letter-spacing: .26em; }
+.opening-text em { font-weight: 400; }
