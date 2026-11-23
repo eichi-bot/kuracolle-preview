@@ -1093,3 +1093,11 @@ html.is-large main, html.is-large .site-footer { zoom: 1.15; }
   .confirm-list div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .step-nav .btn { flex: 1; }
 }
+
+/* オープニング：P案（Zen Kurenaido・少し傾けてペン書きらしく）。小さめで、字の間を広めに（2026-11-24 丸山さん） */
+.opening-text {
+  font-family: "Zen Kurenaido", "Klee One", var(--jp); font-weight: 400;
+  font-size: min(3.1vh, 21px); letter-spacing: .36em; line-height: 2.3;
+  transform: skewY(-4deg);
+}
+.opening-line + .opening-line { padding-top: 1.8em; margin-right: .5em; }
