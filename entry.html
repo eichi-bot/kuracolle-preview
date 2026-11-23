@@ -27,7 +27,7 @@
   if (location.search.indexOf("show-draft") > -1) document.documentElement.classList.add("show-draft");
 </script>
 <script src="js/gate.js?v=96ed1c16"></script>
-<link rel="stylesheet" href="css/style.css?v=20261124c">
+<link rel="stylesheet" href="css/style.css?v=20261124e">
 </head>
 <body>
 
@@ -45,6 +45,7 @@
       <a href="news.html"><span class="nav-en" aria-hidden="true">News</span><span class="nav-jp">お知らせ</span></a>
       <a href="faq.html"><span class="nav-en" aria-hidden="true">FAQ</span><span class="nav-jp">よくある質問</span></a>
     </nav>
+    <button class="fs-toggle" type="button" aria-pressed="false" data-fs-toggle><span class="fs-a" aria-hidden="true">A<small>A</small></span><span class="fs-label">文字を大きく</span></button>
     <div class="header-cta">
       <a class="btn btn-fill" href="entry.html" aria-current="page">出演を申し込む</a>
       <a class="btn btn-line" href="support.html">協賛・お問い合わせ</a>
@@ -63,6 +64,7 @@
     <a href="faq.html"><span class="nav-en" aria-hidden="true">FAQ</span><span class="nav-jp">よくある質問</span></a>
     <a class="drawer-cta btn-fill" href="entry.html">出演を申し込む</a>
     <a class="drawer-cta btn-line" href="support.html">協賛・お問い合わせ</a>
+    <button class="fs-toggle fs-toggle--drawer" type="button" aria-pressed="false" data-fs-toggle><span class="fs-a" aria-hidden="true">A<small>A</small></span><span class="fs-label">文字を大きく</span></button>
   </div>
 </header>
 
@@ -149,6 +151,13 @@
       <input type="hidden" name="form_kind" value="entry">
       <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
+      <ol class="step-bar" aria-label="お申し込みの手順">
+        <li class="is-current"><span>1</span>参加のかたち</li>
+        <li><span>2</span>くわしい内容</li>
+        <li><span>3</span>ご連絡先</li>
+        <li><span>4</span>確認</li>
+      </ol>
+      <div class="step" data-step="1" data-step-title="参加のかたち">
       <fieldset class="cform-type">
         <legend>参加のかたち <span class="req">必須</span></legend>
         <div class="type-options">
@@ -166,6 +175,8 @@
       </fieldset>
 
       <!-- 介護事業所として出演 -->
+      </div>
+      <div class="step" data-step="2" data-step-title="くわしい内容" hidden>
       <div class="cform-extra" data-for="介護事業所として出演">
         <p class="extra-title">事業所について</p>
         <div class="cfield-row">
@@ -284,7 +295,9 @@
         </div>
       </div>
 
-      <p class="extra-title extra-title-plain">ご連絡先</p>
+      </div>
+      <div class="step" data-step="3" data-step-title="ご連絡先" hidden>
+      <p class="extra-title">ご連絡先</p>
       <div class="cfield-row">
         <div class="cfield">
           <label for="e-name">お申し込みされる方のお名前 <span class="req">必須</span></label>
@@ -312,6 +325,15 @@
 
       <label class="agree"><input type="checkbox" name="agree" value="同意する" required><span>入力した個人情報を、くらコレの出演・参加に関するご連絡のために使うことに同意します。 <span class="req">必須</span></span></label>
 
+      </div>
+      <div class="step" data-step="4" data-step-title="入力内容の確認" hidden>
+        <p class="confirm-lead">次の内容で申し込みます。よろしければ「申し込む」を押してください。</p>
+        <dl class="confirm-list" data-confirm></dl>
+      </div>
+      <div class="step-nav">
+        <button class="btn btn-line" type="button" data-step-prev hidden>戻る</button>
+        <button class="btn btn-fill btn-lg" type="button" data-step-next>次へ</button>
+      </div>
       <p class="cform-error" role="alert" hidden></p>
       <button class="btn btn-fill btn-lg cform-submit" type="submit">申し込む</button>
       <p class="cform-done" role="status" hidden></p>
@@ -351,7 +373,7 @@
   </div>
 </footer>
 
-<script src="data/config.js?v=20261124c"></script>
-<script src="js/main.js?v=20261124c"></script>
+<script src="data/config.js?v=20261124e"></script>
+<script src="js/main.js?v=20261124e"></script>
 </body>
 </html>

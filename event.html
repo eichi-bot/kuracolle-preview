@@ -34,7 +34,7 @@
   if (location.search.indexOf("show-draft") > -1) document.documentElement.classList.add("show-draft");
 </script>
 <script src="js/gate.js?v=96ed1c16"></script>
-<link rel="stylesheet" href="css/style.css?v=20261124c">
+<link rel="stylesheet" href="css/style.css?v=20261124e">
 </head>
 <body>
 
@@ -52,6 +52,7 @@
       <a href="news.html"><span class="nav-en" aria-hidden="true">News</span><span class="nav-jp">お知らせ</span></a>
       <a href="faq.html"><span class="nav-en" aria-hidden="true">FAQ</span><span class="nav-jp">よくある質問</span></a>
     </nav>
+    <button class="fs-toggle" type="button" aria-pressed="false" data-fs-toggle><span class="fs-a" aria-hidden="true">A<small>A</small></span><span class="fs-label">文字を大きく</span></button>
     <div class="header-cta">
       <a class="btn btn-fill" href="entry.html">出演を申し込む</a>
       <a class="btn btn-line" href="support.html">協賛・お問い合わせ</a>
@@ -70,6 +71,7 @@
     <a href="faq.html"><span class="nav-en" aria-hidden="true">FAQ</span><span class="nav-jp">よくある質問</span></a>
     <a class="drawer-cta btn-fill" href="entry.html">出演を申し込む</a>
     <a class="drawer-cta btn-line" href="support.html">協賛・お問い合わせ</a>
+    <button class="fs-toggle fs-toggle--drawer" type="button" aria-pressed="false" data-fs-toggle><span class="fs-a" aria-hidden="true">A<small>A</small></span><span class="fs-label">文字を大きく</span></button>
   </div>
 </header>
 
@@ -90,6 +92,7 @@
       <p class="eb-no"><span>Vol.</span>01</p>
       <p class="eb-date">2027.3.14 <span>SUN</span></p>
       <p class="event-note">「FUKUSHI FES 2027」のステージで開催します。</p>
+      <p class="countdown" data-countdown="2027-03-14" hidden>開催まで あと<b data-cd-days>0</b>日</p>
     </div>
     <dl class="outline-list event-list">
       <div><dt>開催日</dt><dd>2027年3月14日（日）<small class="dd-note">会場は12:15開場。くらコレの出演時間は決まり次第お知らせします。</small></dd></div>
@@ -98,6 +101,30 @@
       <div><dt>観覧</dt><dd>高校生以下は無料、一般1,000円（当日受付）<small class="dd-note">FUKUSHI FES 2027 の観覧方法に準じます。<a href="https://fukushifes.com/" target="_blank" rel="noopener">FUKUSHI FES 2027 公式サイト</a></small></dd></div>
       <div><dt>出演</dt><dd>介護事業所 10〜12組程度（公募・出演料無料）</dd></div>
     </dl>
+  </div>
+</section>
+
+<!-- ========== 会場への行き方（学び帳：どこから・何に乗って・何分か） ========== -->
+<section class="sec access" id="access">
+  <div class="wrap access-inner">
+    <header class="sec-head">
+      <p class="sec-no">01</p>
+      <p class="sec-en">Access</p>
+      <h2 class="sec-title">会場への行き方</h2>
+    </header>
+    <div class="access-body">
+      <p class="access-total"><span>名古屋駅から</span><b>約18分</b></p>
+      <ol class="route">
+        <li class="route-ride"><b>名古屋駅</b><span>地下鉄 東山線（藤が丘方面）</span></li>
+        <li class="route-ride"><b>伏見駅</b><span>地下鉄 鶴舞線に乗りかえ（赤池方面）</span></li>
+        <li class="route-walk"><b>大須観音駅</b><span>4番出口から歩いて約3分</span></li>
+        <li class="route-goal"><b>名古屋インターナショナルレジェンドホール</b><span>名古屋市中区大須1-7-26</span></li>
+      </ol>
+      <div class="map-frame">
+        <iframe title="名古屋インターナショナルレジェンドホールの地図" src="https://www.google.com/maps?q=%E5%90%8D%E5%8F%A4%E5%B1%8B%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%8A%E3%82%B7%E3%83%A7%E3%83%8A%E3%83%AB%E3%83%AC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%89%E3%83%9B%E3%83%BC%E3%83%AB&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="dd-note">所要時間：FUKUSHI FES 2027 公式サイトより</p>
+    </div>
   </div>
 </section>
 
@@ -138,8 +165,11 @@
     <a href="#top" class="to-top">ページの先頭へ</a>
   </div>
 </footer>
+<div class="sticky-cta" data-sticky-cta>
+  <a class="btn btn-fill" href="entry.html">出演・参加を申し込む</a>
+</div>
 
-<script src="data/config.js?v=20261124c"></script>
-<script src="js/main.js?v=20261124c"></script>
+<script src="data/config.js?v=20261124e"></script>
+<script src="js/main.js?v=20261124e"></script>
 </body>
 </html>
